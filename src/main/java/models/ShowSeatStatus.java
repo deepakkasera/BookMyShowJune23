@@ -1,7 +1,7 @@
 package models;
 
 public enum ShowSeatStatus {
-    AVAILABLE,
-    BOOKED,
-    BLOCKED,
+    AVAILABLE,  //1
+    BOOKED,    //2
+    BLOCKED,  //3
 }
