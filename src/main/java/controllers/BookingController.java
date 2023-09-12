@@ -14,20 +14,7 @@ public class BookingController {
     }
 
     public BookMovieResponseDto bookMovie(BookMovieRequestDto bookMovieRequestDto) {
-        BookMovieResponseDto bookMovieResponseDto = new BookMovieResponseDto();
-
-        try {
-            Booking booking = bookingService.bookMovie(bookMovieRequestDto.getUserId(),
-                    bookMovieRequestDto.getShowId(),
-                    bookMovieRequestDto.getShowSeatIds());
-            bookMovieResponseDto.setBookingId(booking.getId());
-            bookMovieResponseDto.setAmount(booking.getAmount());
-            bookMovieResponseDto.setBookingResponseStatus(BookingResponseStatus.SUCCESS);
-        } catch (Exception exception) {
-            bookMovieResponseDto.setBookingResponseStatus(BookingResponseStatus.FAILURE);
-        }
-
-        return bookMovieResponseDto;
+        return null;
     }
 }
 

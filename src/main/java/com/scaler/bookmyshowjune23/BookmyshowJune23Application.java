@@ -17,6 +17,4 @@ Requirement :- User should be able to book a Ticket.
 Client  -> BMS API's
 
 Client <-> BookingController -> Services -> .....
-
-
  */
