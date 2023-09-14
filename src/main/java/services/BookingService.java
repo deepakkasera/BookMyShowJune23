@@ -20,13 +20,16 @@ public class BookingService {
     private UserRepository userRepository;
     private ShowRepository showRepository;
     private ShowSeatRepository showSeatRepository;
+    private PriceCalculatorService priceCalculatorService;
 
     public BookingService(UserRepository userRepository,
                           ShowRepository showRepository,
-                          ShowSeatRepository showSeatRepository) {
+                          ShowSeatRepository showSeatRepository,
+                          PriceCalculatorService priceCalculatorService) {
         this.userRepository = userRepository;
         this.showRepository = showRepository;
         this.showSeatRepository = showSeatRepository;
+        this.priceCalculatorService = priceCalculatorService;
     }
 
     @Transactional(isolation = Isolation.SERIALIZABLE)
@@ -89,8 +92,8 @@ public class BookingService {
         booking.setBookedDate(new Date());
         booking.setCreatedAt(new Date());
         booking.setShowSeats(showSeats);
-        booking.setAmount();
+        booking.setAmount(priceCalculatorService.calculatePrice(showSeats, bookedShow));
 
-        return null;
+        return booking;
     }
 }
